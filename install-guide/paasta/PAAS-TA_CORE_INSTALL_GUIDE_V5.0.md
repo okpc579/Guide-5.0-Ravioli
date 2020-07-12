@@ -788,11 +788,11 @@ ex) uaa_login_logout_redirect_parameter_whitelist=["{PaaS-TA PORTAL URI}","{PaaS
 
 2. uaa_login_links_passwd : UAA 페이지에서 Reset Password 버튼 클릭 시 이동하는 링크 주소
 
-<img src="https://github.com/okpc579/PaaS-TA-Deployment/blob/master/paasta/images/uaa-login.png" width="663px">
+<img src="https://github.com/PaaS-TA/Guide-5.0-Ravioli/blob/master/install-guide/paasta/images/uaa-login.png" width="663px">
 
 3. uaa_login_links_signup : UAA 페이지에서 Create Account 버튼 클릭 시 이동하는 링크 주소
 
-<img src="https://github.com/okpc579/PaaS-TA-Deployment/blob/master/paasta/images/uaa-login-2.png">
+<img src="https://github.com/PaaS-TA/Guide-5.0-Ravioli/blob/master/install-guide/paasta/images/uaa-login-2.png">
 
 ```
 ex) uaa_login_links_signup="{PaaS-TA PORTAL URI}/createuser"
