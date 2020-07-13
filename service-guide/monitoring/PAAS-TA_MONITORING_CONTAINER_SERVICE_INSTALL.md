@@ -1,14 +1,11 @@
-1\. [개요](#1)  
-2\. [PaaS-TA Container service 설치](#2)  
-　2.1. [Prerequisite](#3)  
-　2.2. [PaaS-TA Container service의 설치 완료 확인](#4)  
-　2.3. [Logsearch 설치 환경설정](#5)   
-　　● [common_vars.yml](#6)  
-　　● [logsearch-vars.yml](#7)  
-　　● [deploy-logsearch.sh](#8)  
-　2.4. [Logsearch 설치](#9)  
-　2.5. [Logsearch 설치 - 다운로드 된 Release 파일 이용 방식](#10)  
-　2.6. [서비스 설치 확인](#11)
+1. [개요](#1)  
+2. [PaaS-TA Container service 설치](#2)  
+3. [PaaS-TA Container service 설치 완료 확인](#3)  
+4. [Kubernetes Prometheus Pods 정보 확인](#4)  
+5. [prometheus-prometheus-prometheus-oper-prometheus-0 POD Node IP 확인](#5)  
+6. [Kubernetes API URL(serverAddress) 확인](#6)  
+7. [Kubernetes API Request 호출시 Header(Authorization) 인증을 위한 Token값 확인](#7)  
+
  
 ## <div id='1'/>1. 개요
 
@@ -19,30 +16,30 @@
 
 [PaaS-TA Container service 설치 가이드](https://github.com/PaaS-TA/Guide-5.0-Ravioli/blob/master/service-guide/tools/PAAS-TA_CONTAINER_SERVICE_INSTALL_GUIDE_V2.0.md)
 
-### <div id='3'/>3.	PaaS-TA Container service의 설치 완료 확인 
+### <div id='3'/>3.	PaaS-TA Container service 설치 완료 확인 
 ![PaaSTa_paasta_container_service_vms]
 
 
-### <div id='19-5'/>3.6.4.	Kubernetes Prometheus Pods 정보를 확인한다.  
+### <div id='4'/>4.	Kubernetes Prometheus Pods 정보 확인  
 ```
 $  bosh -e {director_name} ssh -d paasta-container-service master
 $  /var/vcap/packages/kubernetes/bin/kubectl get pods --all-namespaces -o wide
 ```
 ![PaaSTa_paasta_container_service_pods]
 
-### <div id='19-6'/>3.6.5.	prometheus-prometheus-prometheus-oper-prometheus-0 POD의 Node IP를 확인한다.
+### <div id='5'/>5.	prometheus-prometheus-prometheus-oper-prometheus-0 POD Node IP 확인
 ```
 $  /var/vcap/packages/kubernetes/bin/kubectl get nodes -o wide
 ```
 ![PaaSTa_paasta_container_service_nodes]
 
-### <div id='19-7'/>3.6.6.	Kubernetes API URL(serverAddress)를 확인한다.
+### <div id='6'/>6.	Kubernetes API URL(serverAddress) 확인
 ```
 $  curl localhost:8080/api
 ```
 ![PaaSTa_paasta_container_service_kubernetes_api]
 
-### <div id='19-8'/>3.6.7.	Kubernetes API Request 호출시 Header(Authorization) 인증을 위한 Token값을 확인한다. 
+### <div id='7'/>7.	Kubernetes API Request 호출시 Header(Authorization) 인증을 위한 Token값 확인
 ```
 $  /var/vcap/packages/kubernetes/bin/kubectl -n kube-system describe secret $(/var/vcap/packages/kubernetes/bin/kubectl -n kube-system get secret | grep monitoring-admin | awk '{print $1}')
 ```
